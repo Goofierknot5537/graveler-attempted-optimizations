@@ -25,7 +25,7 @@ PS D:\Python\Graveler> python3 .\graveler1.py
 
 Took an average of 3.8763479380001082 seconds
 ```
-Hmmm. Not much of an improvement. Could even attribute it to random cpu flucuations, but maybe it is just a small improvement. Went up to 25,797/sec. The file will be in [graveler1.py](https://github.com/Goofierknot5537/graveler-attempted-optimizations/blob/main/graveler1.py).
+Hmmm. Not much of an improvement. Could even attribute it to random cpu flucuations, but maybe it is just a small improvement. Went up to 25,797/sec.
 
 ## Numpy
 
