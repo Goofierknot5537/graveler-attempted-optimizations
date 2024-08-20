@@ -43,7 +43,24 @@ Took an average of 1.7888492489990313 seconds
 ```
 Now we're getting somewhere. This is about 55,902/sec.
 
-## Removing the while loop
+## Removing the loops and Numpy
 
-```while``` loops are slower than ```for``` loops. While having the extra comparison if the total amount of a number is less than 177 to end this early *seems* good, the chances of this happening are close to nil, and it would be faster on average just to do every roll rather than check every time if we succeeded. 
+```while``` loops are slower than ```for``` loops. While having the extra comparison if the total amount of a number is less than 177 to end this early *seems* good, the chances of this happening are close to nill, and it would be faster on average just to do every roll rather than check every time if we succeeded. This removes extra operations, as well as using a faster loop, increasing speed by a bit.
+```
+PS D:\Python\Graveler> python3 .\graveler3.py
 
+Took an average of 1.8421107560000383 seconds
+```
+...huh. Honestly I don't know why this happened. Subsequent tests give the same results, even though the theory should've been right. Weird.
+
+Back to the drawing board.
+
+In each loop, what we're doing is creating 231 random numbers, counting them up, counting each roll, setting the new max, and reseting the list. Well, what if we create every random number first, and then split it into 231-sized chunks before doing our operations on that? It removes part of the loop, and should be faster since we're only running the rng once, rather than n amount of times. 
+
+You know what? Since we're already using numpy, let's also use it to count how many of each number we have! It's backend is in C, so it's like having the speed of C but in Python!
+```
+PS D:\Python\Graveler> python3 .\graveler3.py
+
+Took an average of 0.15460227699950338 seconds
+```
+Hell yeah!
