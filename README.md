@@ -35,7 +35,7 @@ Random Int    = 21.86363869998604 seconds
 Random Choice = 16.74171239999123 seconds
 Numpy Randint = 0.596952100051567 seconds
 ```
-So, we simply replace ```random.choice()``` with ```numpy.random.randint()```, removing the need for the ```item``` list as well. We should probably also remove it from the 231 for loop, as it can generate 231 nunmbers at once, and that's faster than being run 231 times. Also we can move ```numbers = [0,0,0,0]``` to the end, as it already starts at 0.
+So, we simply replace ```random.choice()``` with ```numpy.random.randint()```, removing the need for the ```item``` list as well. We should probably also remove the ```randint``` from the 231 for loop, as it can generate 231 nunmbers at once, and that's faster than being run 231 times. Also we can move ```numbers = [0,0,0,0]``` to the end, as it already starts at 0.
 ```
 PS D:\Python\Graveler> python3 .\graveler2.py
 
