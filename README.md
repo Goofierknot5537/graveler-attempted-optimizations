@@ -21,4 +21,4 @@ There are some redundant code that we can easily remove to improve some time and
 
 ![2](Images/Graveler1.png "3.87635 seconds")
 
-Hmmm. Not much of an improvement. Could even attribute it to random cpu flucuations, but maybe it is just a small improvement. Went up to 25,797/sec.
+Hmmm. Not much of an improvement. Could even attribute it to random cpu flucuations, but maybe it is just a small improvement. Went up to 25,797/sec. The file will be in [graveler1.py](https://github.com/Goofierknot5537/graveler-attempted-optimizations/blob/main/graveler1.py).
