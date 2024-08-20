@@ -64,3 +64,13 @@ PS D:\Python\Graveler> python3 .\graveler3.py
 Took an average of 0.22883855099906214 seconds
 ```
 Hell yeah!
+
+## What more?
+
+Turns out ```numpy.random.randint()``` isn't the fastest. ```numpy.random.generator``` is the fastest method. Had to look that up. It uses [PCG64](https://en.wikipedia.org/wiki/Permuted_congruential_generator), so it's apparently more efficient and more random.
+```
+PS D:\Python\Graveler> python3 .\graveler4.py
+
+Took an average of 0.19178970200009643 seconds
+```
+Guess that's true.
