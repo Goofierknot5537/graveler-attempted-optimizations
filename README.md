@@ -22,3 +22,19 @@ There are some redundant code that we can easily remove to improve some time and
 ![2](Images/Graveler1.png "3.87635 seconds")
 
 Hmmm. Not much of an improvement. Could even attribute it to random cpu flucuations, but maybe it is just a small improvement. Went up to 25,797/sec. The file will be in [graveler1.py](https://github.com/Goofierknot5537/graveler-attempted-optimizations/blob/main/graveler1.py).
+
+## Numpy
+
+While ```random.choice()``` is pretty good, it wouldn't stand a chance against Numpy's random generator. Quick comparison in generating 100 million random numbers:
+```
+Random Int    = 21.86363869998604 seconds
+Random Choice = 16.74171239999123 seconds
+Numpy Randint = 0.596952100051567 seconds
+```
+So, we simply replace ```random.choice()``` with ```numpy.random.randint()```, removing the need for the ```item``` list as well. We should probably also remove it from the 231 for loop, as it can generate 231 nunmbers at once, and that's faster than being run 231 times. Also we can move ```numbers = [0,0,0,0]``` to the end, as it already starts at 0.
+```
+PS D:\Python\Graveler> python3 .\graveler2.py
+
+Took an average of 1.7888492489990313 seconds
+```
+Now we're getting somewhere. This is about 55,902/sec.
