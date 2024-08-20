@@ -63,9 +63,9 @@ PS D:\Python\Graveler> python3 .\graveler3.py
 
 Took an average of 0.22883855099906214 seconds
 ```
-Hell yeah!
+Hell yeah! 436,989/sec!
 
-## What more?
+## Reduction
 
 Turns out ```numpy.random.randint()``` isn't the fastest. ```numpy.random.generator``` is the fastest method. Had to look that up. It uses [PCG64](https://en.wikipedia.org/wiki/Permuted_congruential_generator), so it's apparently more efficient and more random.
 ```
@@ -73,4 +73,16 @@ PS D:\Python\Graveler> python3 .\graveler4.py
 
 Took an average of 0.19178970200009643 seconds
 ```
-Guess that's true.
+Guess that's true. 521,404/sec.
+
+At this point, everything was really situational. If there was anything faster that I actually understood, Google didn't know and ChatGPT wasn't telling.
+
+So, rather than optimize further, what if we reduce the amount of tests needed to do? We are generating *four* numbers, after all. Each having a *1/4* chance of happening. So aren't we doing four simulations simultaniously?
+
+By looking at every number's occurance, rather than just one, we effectively ran **four times** the simulations with only a little more overhead. ```bincount()``` also happens to count *every* number in the array, so only minimal changes are needed.
+```
+PS C:\Users\goofier\Downloads\Python\Graveler> python3 .\graveler4.py
+
+Took an average of 0.10215682229993399 seconds
+```
+About 1.88x faster. 978,887/sec.
