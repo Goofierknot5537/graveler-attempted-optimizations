@@ -61,6 +61,6 @@ You know what? Since we're already using numpy, let's also use it to count how m
 ```
 PS D:\Python\Graveler> python3 .\graveler3.py
 
-Took an average of 0.15460227699950338 seconds
+Took an average of 0.22883855099906214 seconds
 ```
 Hell yeah!
