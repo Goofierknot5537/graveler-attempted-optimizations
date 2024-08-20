@@ -86,3 +86,12 @@ PS C:\Users\goofier\Downloads\Python\Graveler> python3 .\graveler4.py
 Took an average of 0.10215682229993399 seconds
 ```
 About 1.88x faster. 978,887/sec.
+
+## Memory
+While running some higher numbers and looking at task manager, I saw something.
+```
+     CPU  12.7%   RAM  8,404.9 MB
+```
+Whoops. Maybe saving 25 million digits into a single array wasn't the best idea. If we go any larger I'll need a better laptop. And maybe use my external storage as RAM.
+
+No, that seems too expensive. Let's try and split it into more managable pieces. 1 GB at most.
