@@ -7,4 +7,8 @@ Paralysis has a 1/4 chance of proccing, and with a need to succeed at least 177 
 
 This isn't happening any time soon. But it would be nice to simulate it.
 
-ShoddyCast's original code is stored as "[graveler.py](https://github.com/Goofierknot5537/graveler-attempted-optimizations/blob/main/graveler.py)", with the total rolls changed to 5 million because I don't want to wait 8 1/2 days just to verify.
+ShoddyCast's original code is stored as "[graveler.py](https://github.com/Goofierknot5537/graveler-attempted-optimizations/blob/main/graveler.py)", with the total rolls changed to 500k because I don't want to wait days just to verify.
+
+## Removal of Redundant code
+
+There are some redundant code that we can easily remove to improve some time and readability. The ```math``` module is never used, and we can decrease items by 1 in each to remove the ```numbers[rolls-1]``` into just ```numbers[rolls]```, doing one less calculation per try. The repeat() module is efficient already.
