@@ -7,9 +7,9 @@ maxNum = [0,0,0,0]
 
 rng = np.random.default_rng()
 
-random = rng.integers(0,4, size=(231 * rolls), dtype=np.int8)
+random = rng.integers(0,4, size=(231 * new_rolls), dtype=np.int8)
 
-divided_random = np.array_split(random, rolls)
+divided_random = np.array_split(random, new_rolls)
 
 for array in divided_random:
     numbers = np.bincount(array)
