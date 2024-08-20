@@ -7,7 +7,7 @@ numbers = [0,0,0,0]
 rolls = 0
 maxOnes = 0
 
-while numbers[0] < 177 and rolls < 5000000:
+while numbers[0] < 177 and rolls < 100000:
     numbers = [0,0,0,0]
     for i in repeat(None, 231):
         roll = random.choice(items)
