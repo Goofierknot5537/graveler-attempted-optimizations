@@ -43,7 +43,7 @@ Took an average of 1.7888492489990313 seconds
 ```
 Now we're getting somewhere. This is about 55,902/sec.
 
-## Removing the loops and Numpy
+## Removing loops and more Numpy
 
 ```while``` loops are slower than ```for``` loops. While having the extra comparison if the total amount of a number is less than 177 to end this early *seems* good, the chances of this happening are close to nill, and it would be faster on average just to do every roll rather than check every time if we succeeded. This removes extra operations, as well as using a faster loop, increasing speed by a bit.
 ```
