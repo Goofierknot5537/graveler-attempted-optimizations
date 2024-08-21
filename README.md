@@ -81,7 +81,7 @@ So, rather than optimize further, what if we reduce the amount of tests needed t
 
 By looking at every number's occurance, rather than just one, we effectively ran **four times** the simulations with only a little more overhead. ```bincount()``` also happens to count *every* number in the array, so only minimal changes are needed.
 ```
-PS C:\Users\goofier\Downloads\Python\Graveler> python3 .\graveler4.py
+PS D:\Python\Graveler> python3 .\graveler4.py
 
 Took an average of 0.10215682229993399 seconds
 ```
