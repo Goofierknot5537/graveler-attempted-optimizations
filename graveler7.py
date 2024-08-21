@@ -11,7 +11,7 @@ for i in range(sub_rolls):
     random = rng.binomial(n = 231, p=0.25, size = -(rolls // -sub_rolls))
     maximum = np.max(random)
     if maximum > maxNum:
-        maxNum = np.max(random)
+        maxNum = maximum
 
 print(f"Highest Roll: {maxNum}\n"
       f"Number of Roll Sessions: {rolls}")
