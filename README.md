@@ -106,4 +106,6 @@ Python     CPU  12.5%   RAM  1,023.7 MB
 ```
 That's better.
 
+...
+
 Hey wait, what's with that low CPU?
