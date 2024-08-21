@@ -178,5 +178,5 @@ Unless it's for memory managment[^1].
 | graveler4.py | 978,887/sec | 17 minutes, 2 seconds |
 | graveler5.py | 975,205/sec | 17 minutes, 6 seconds | 
 | graveler6.py | 1,481,113/sec | 11 minutes, 16 seconds|
-| graveler7.py | 21,949,665/sec | 46 seconds |
+| graveler7.py | 21,949,665/sec | 45.56 seconds |
 
