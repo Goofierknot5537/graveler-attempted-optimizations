@@ -92,6 +92,18 @@ While running some higher numbers and looking at task manager, I saw something.
 ```
 Python     CPU  12.7%   RAM  8,404.9 MB
 ```
-Whoops. Maybe saving 25 million digits into a single array wasn't the best idea. If we go any larger I'll need a better laptop. And maybe use my external storage as RAM.
+Whoops. Maybe saving 6 billion digits into a single array wasn't the best idea. If we go any larger I'll need a better laptop. And maybe use my external storage as RAM.
 
-No, that seems too expensive. Let's try and split it into more managable pieces. 1 GB at most.
+No, that seems too expensive. Let's try and split it into more managable pieces. Let's say ~1 GB at most. ```rolls = 12000000``` seems to be at around that mark, so splitting it up into 12 million-sized chunks would be acceptable. Our code will run slightly slower since we're trying to reduce memory usage, but if you can't run it at all, is it really worth it?
+```
+PS D:\Python\Graveler> python3 .\graveler5.py
+
+Took an average of 0.10254251150006893 seconds
+```
+Better than I expected. I won't complain, though. How's the memory going?
+```
+Python     CPU  12.5%   RAM  1,023.7 MB
+```
+That's better.
+
+Hey wait, what's with that low CPU?
