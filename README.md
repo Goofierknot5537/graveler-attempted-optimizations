@@ -116,3 +116,67 @@ Multiprocessing is hard to work around. Especially if it's your first time (like
 After research, I still can't really narrow it down. I do have some theories, but for now I'll just experiment with optimal amounts of processors. It seems that as roll count goes up, it's optimal to use more processors, though I don't know how it correlates. There's also a sudden drop when doing 9 million rolls during some tests for whatever reason.
 
 Here's some graphs I made to show what I mean.
+
+![Graph1](/Graphs/Graph1.png)
+![Graph2](/Graphs/Graph2.png)
+
+Looks like 3 cores is my best bet for now. I've tried higher cores, but things just get longer. 
+
+Anyways, how's the speed looking? I'll do 10 million instead of 100k so the cores can prepare.
+
+```
+PS D:\Python\Graveler> python3 .\graveler5.py
+
+Took an average of 10.253912020009011 seconds
+```
+```
+PS D:\Python\Graveler> python3 .\graveler6.py
+
+Took an average of 6.75167722000042 seconds
+```
+Pretty good. 5's test is 975,237/sec, 6 is 1,481,113/sec.
+
+## Is there more?
+There are probably more optimizations to be found in this code. If the multiprocessing was fixed, the code could probably use as many cores as wanted, but I don't want to figure that out. I've spent enough time on this already. 
+
+Profiling shows that most of our time is spent on executing ```np.max(numbers)```, ```np.argmax(numbers)```, and ```np.array_split(random,new_rolls)```. If there are more efficient options or a way to get around using these, time could possibly be improved.
+
+Of course, we could also just forgo almost everything about this simulation and use the wisdom of another [youtuber](https://www.youtube.com/watch?v=Qgevy75co8c)...
+```
+import numpy as np
+import timeit
+
+rng = np.random.default_rng()
+def rolls():
+    numMax = 0
+    random = rng.binomial(n = 231, p=0.25, size = 10000000)
+    maximum = np.max(random)
+    if maximum > numMax:
+    numMax = np.max(random)
+
+result = timeit.timeit(rolls, number=100)
+print(f"\nTook an average of {result / 100} seconds\n")
+```
+```
+PS D:\Python\Graveler> python3 .\graveler7.py
+
+Took an average of 0.45558782099979 seconds
+```
+...don't use loops. Use math.
+
+Unless it's for memory managment[^1].
+
+[^1]: This is my opinion, the youtuber never said this. Please don't sue me.
+
+## Final times
+| File | Experimental Speed | Estimated Completion (1B) |
+| ---- | ------------------ | ------------------------- |
+| graveler.py | 25,320/sec | 10 hours, 58 minutes, 15 seconds |
+| graveler1.py | 25,797/sec | 10 hours, 46 minutes, 5 seconds |
+| graveler2.py | 55,902/sec | 4 hours, 58 minutes, 9 seconds |
+| graveler3.py | 436,989/sec | 38 minutes, 9 seconds |
+| graveler4.py | 978,887/sec | 17 minutes, 2 seconds |
+| graveler5.py | 975,205/sec | 17 minutes, 6 seconds | 
+| graveler6.py | 1,481,113/sec | 11 minutes, 16 seconds|
+| graveler7.py | 21,949,665/sec | 46 seconds |
+
