@@ -169,7 +169,7 @@ Unless it's for memory managment[^1].
 [^1]: This is my opinion, the youtuber never said this. Please don't sue me.
 
 ## Final times
-| File | Experimental Speed | Estimated Completion (1B) |
+| File | Experimental Speed | Estimated Completion (1B)[^2] |
 | ---- | ------------------ | ------------------------- |
 | graveler.py | 25,320/sec | 10 hours, 58 minutes, 15 seconds |
 | graveler1.py | 25,797/sec | 10 hours, 46 minutes, 5 seconds |
@@ -179,6 +179,8 @@ Unless it's for memory managment[^1].
 | graveler5.py | 975,205/sec | 17 minutes, 6 seconds | 
 | graveler6.py | 1,481,113/sec | 11 minutes, 16 seconds|
 | graveler7.py | 21,949,665/sec | 45.56 seconds |
+
+[^2]: Experiments may yield different results
 
 So, how much time could Austin have saved if he used these files instead of his own? My tests are 18.6863x faster than Austin's, so I'll just divide my speed by that.
 
