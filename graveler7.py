@@ -4,7 +4,7 @@ rng = np.random.default_rng()
 
 rolls = 10000000
 
-sub_rolls = rolls // 10000000
+sub_rolls = -(rolls // -10000000)
 
 maxNum = 0
 for i in range(sub_rolls):
