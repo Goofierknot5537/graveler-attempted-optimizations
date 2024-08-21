@@ -1,8 +1,7 @@
 import numpy as np
-from math import ceil
 
 rolls = 100000
-new_rolls = ceil(rolls/4)
+new_rolls = -(rolls // -4)
 maxNum = [0,0,0,0]
 
 rng = np.random.default_rng()
