@@ -113,14 +113,14 @@ Hey wait, what's with that low CPU?
 ## Multiprocessing
 Multiprocessing is hard to work around. Especially if it's your first time (like me). So when I set up the code and put on 10 processors or so it ended up being slower than a lower amount! It seemed to hover around 3 cores when doing 20 million rolls. Why might this be?
 
-After research, I still can't really narrow it down. I do have some theories, but for now I'll just experiment with optimal amounts of processors. It seems that as roll count goes up, it's optimal to use more processors, though I don't know how it correlates. There's also a sudden drop when doing 9 million rolls during some tests for whatever reason.
+After research, I still can't really narrow it down. I do have some theories, but for now I'll just experiment with optimal amounts of processors, though more cores just seems to add more time. There's also a sudden drop when doing 9 million rolls during some tests for whatever reason.
 
 Here's some graphs I made to show what I mean.
 
 ![Graph1](/Graphs/Graph1.png)
 ![Graph2](/Graphs/Graph2.png)
 
-Looks like 3 cores is my best bet for now. I've tried higher cores, but things just get longer. 
+Looks like 3 cores is my best bet for now. 
 
 Anyways, how's the speed looking? I'll do 10 million instead of 100k so the cores can prepare.
 
