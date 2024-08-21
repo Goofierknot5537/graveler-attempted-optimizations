@@ -15,7 +15,7 @@ PS D:\Python\Graveler> python3 .\graveler.py
 
 Took an average of 3.949372621999937 seconds
 ```
-I used the ``timeit`` module to time the code. Put everything into a function, and ran ``timeit.timeit(rolling, number=100)`` to time it. ~4 seconds for 100k is about 25,320/sec. Faster than Dustin's 1,355/sec for 1 billion in 8.5 days, but that may be due to hardware, rather than software. 
+I used the ``timeit`` module to time the code. Put everything into a function, and ran ``timeit.timeit(rolling, number=100)`` to time it. ~4 seconds for 100k is about 25,320/sec. Faster than Austin's 1,355/sec for 1 billion in 8.5 days, but that may be due to hardware, rather than software. 
 
 ## Removal of Redundant code
 
@@ -180,3 +180,12 @@ Unless it's for memory managment[^1].
 | graveler6.py | 1,481,113/sec | 11 minutes, 16 seconds|
 | graveler7.py | 21,949,665/sec | 45.56 seconds |
 
+So, how much time could Austin have saved if he used these files instead of his own? My tests are 18.6863x faster than Austin's, so I'll just divide my speed by that.
+
+If he used graveler5.py, it would've taken 5 hours, 19 minutes, 22 seconds.
+
+For graveler6.py, 3 hours, 30 minutes, 17 seconds.
+
+And for graveler7.py, 14 minutes, 12 seconds.
+
+Thank you for the opportunity to optimize code, I haven't done this before so I also learned a lot of new things. I don't think I'll even touch multiprocessing again, though. Still, it was fun to do. ~~even if it took me three days to complete~~
