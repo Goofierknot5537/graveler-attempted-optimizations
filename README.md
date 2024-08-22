@@ -142,7 +142,7 @@ There are probably more optimizations to be found in this code. If the multiproc
 Profiling shows that most of our time is spent on executing ```np.max(numbers)```, ```np.argmax(numbers)```, and ```np.array_split(random,new_rolls)```. If there are more efficient options or a way to get around using these, time could possibly be improved.
 
 Of course, we could also just forgo almost everything about this simulation and use the wisdom of another [youtuber](https://www.youtube.com/watch?v=Qgevy75co8c)...
-```
+```Python
 import numpy as np
 import timeit
 
