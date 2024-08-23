@@ -191,3 +191,56 @@ For graveler6.py, 3 hours, 30 minutes, 17 seconds.
 And for graveler7.py, 14 minutes, 12 seconds.
 
 Thank you for the opportunity to optimize code, I haven't done this before so I also learned a lot of new things. I don't think I'll even touch multiprocessing again, though. Still, it was fun to do. ~~even if it took me three days to complete~~
+
+### Small update
+
+Was able to put on multiprocessing for graveler7.py, here's how it looks:
+```python
+import numpy as np
+from multiprocessing import Value, Process
+from timeit import timeit
+
+rng = np.random.default_rng()
+
+rolls = 1_000_000_000
+
+num_of_processors = 16
+
+def worker(maxNum, rolls):
+    sub_rolls = -(rolls // -10_000_000)
+    for i in range(sub_rolls):
+        random = rng.binomial(n=231, p=0.25, size= -(rolls // -sub_rolls))
+        maximum = np.max(random)
+        if maximum > maxNum.value:
+            maxNum.value = maximum
+
+
+def main():
+    maxNum = Value('i', 0)
+
+    new_rolls = -(rolls // -num_of_processors)
+
+    processes = []
+    for i in range(num_of_processors):
+        p = Process(target=worker, args=(maxNum, new_rolls))
+        processes.append(p)
+        p.start()
+    
+    for p in processes:
+        p.join()
+
+    print(f"Highest Roll: {maxNum.value}\n"
+        f"Number of Roll Sessions: {rolls}\n")
+    
+if __name__ == "__main__":
+    print(f"Took about {timeit(main, number=1)} seconds.")
+```
+Actually used up 100% of my cpu.
+```
+PS D:\Python\Graveler> python3 .\graveler7 copy.py
+Highest Roll: 101
+Number of Roll Sessions: 1000000000
+
+Took about 8.183288599946536 seconds.
+```
+Pretty nice.
