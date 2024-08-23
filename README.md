@@ -241,6 +241,6 @@ PS D:\Python\Graveler> python3 .\graveler7 copy.py
 Highest Roll: 101
 Number of Roll Sessions: 1000000000
 
-Took about 8.183288599946536 seconds.
+Took about 5.252278099999785 seconds.
 ```
 Pretty nice.
