@@ -141,7 +141,7 @@ There are probably more optimizations to be found in this code. If the multiproc
 
 Profiling shows that most of our time is spent on executing ```np.max(numbers)```, ```np.argmax(numbers)```, and ```np.array_split(random,new_rolls)```. If there are more efficient options or a way to get around using these, time could possibly be improved.
 
-Of course, we could also just forgo almost everything about this simulation and use the wisdom of another [youtuber](https://www.youtube.com/watch?v=Qgevy75co8c)...
+Of course, we could also just forgo almost everything about this simulation, bend the rules just a *tiny* bit, and use the wisdom of another [youtuber](https://www.youtube.com/watch?v=Qgevy75co8c)...
 ```Python
 import numpy as np
 import timeit
@@ -192,7 +192,7 @@ And for graveler7.py, 14 minutes, 12 seconds.
 
 Thank you for the opportunity to optimize code, I haven't done this before so I also learned a lot of new things. I don't think I'll even touch multiprocessing again, though. Still, it was fun to do. ~~even if it took me three days to complete~~
 
-### Small update
+## Small update
 
 Was able to put on multiprocessing for graveler7.py, here's how it looks:
 ```python
