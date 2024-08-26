@@ -166,7 +166,7 @@ Took an average of 0.45558782099979 seconds
 
 Unless it's for memory managment[^1].
 
-[^1]: This is my opinion, the youtuber never said this. Please don't sue me.
+[^1]: This is my opinion, the mCoding said this. Please don't sue me.
 
 ## Final times
 | File | Experimental Speed | Estimated Completion (1B)[^2] |
@@ -244,3 +244,50 @@ Number of Roll Sessions: 1000000000
 Took about 5.252278099999785 seconds.
 ```
 Pretty nice.
+
+## Update 2!
+The code was stewing in my brain for awhile, and then I came up with something even faster!
+```python
+import numpy as np
+from timeit import timeit
+
+rng = np.random.default_rng()
+amount = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...] #Numbers 0-231
+prob = [1.377691070325179e-29, 1.0608221241503985e-27, 4.066484809243174e-26, ...] #Probabilities for numbers 0-231
+
+rolls = 1_000_000_000
+
+sub_rolls = -(rolls // -10_000_000)
+
+def rolling():
+    maxNum = 0
+    for i in range(sub_rolls):
+        random = rng.choice(amount, -(rolls // -sub_rolls), p=prob)
+        maximum = np.max(random)
+        if maximum > maxNum:
+            maxNum = maximum
+    print(f"Highest Roll: {maxNum}\n"
+          f"Number of Roll Sessions: {rolls}")
+print(f"Took {timeit(rolling, number=1)} seconds")
+```
+Instead of doing the math ourselves, we calculate the probabilities of doing this beforehand, and then randomly selecting it based on that! The computer barely has to do any work.
+```
+PS D:\Python\Graveler> python3 .\graveler8.py
+Highest Roll: 100
+Number of Roll Sessions: 1000000000
+Took 30.235086200002115 seconds
+```
+It even follows closely with what the youtuber I mentioned said earlier:
+
+>"If you have the great luxury of being able to compute the answer mathematically ahead of time, definitely do that."
+>
+> -mCoding
+
+And so, I come to my final question: How fast would it be with multiprocessing?
+```
+PS D:\Python\Graveler> python3 .\graveler8_multi.py
+Highest Roll: 99
+Number of Roll Sessions: 1000000000
+Took 3.8431949999940116 seconds
+```
+Very fast.
